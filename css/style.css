@@ -19,5 +19,21 @@
 
 .footer {
     border-top: 1px solid #e5e5e5;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
+}
+
+#slogan {
+    background-color: #72BAB7;
+    height: 50px;
+    width: 100%;
+    margin-top: 55px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+#slogan-text {
+    color: #EEF7F6;
+    padding-top: 12.5px;
+    font-weight: 100;
+    letter-spacing: 4px;
 }
