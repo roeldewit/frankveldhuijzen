@@ -15,7 +15,7 @@
     <div class="row">
       <ul class="nav nav-tabs" role="tablist" id="navbar">
         <li><a href="index.html">Home</a></li>
-        <li class="active"><a href="contact.html">Contact</a></li>
+        <li class="active"><a href="contact.php">Contact</a></li>
       </ul>
     </div>
     <div class="jumbotron" id="jumbotron">
@@ -40,20 +40,34 @@
         </p>
       </div>
       <div class="col-md-8">
-        <form role="form">
+
+        <?php
+
+        if (isset($_GET['s'])) {
+          echo "<div class=\"alert alert-success\">".$_GET['s']."</div>";
+        } else if ($_GET['e']) {
+          echo "<div class=\"alert alert-error\">".$_GET['e']."</div>";
+        }
+
+        ?>
+
+        <form role="form" method="POST" action="contact-submit.php">
           <div class="form-group">
             <label for="name">Naam</label>
-            <input type="text" class="form-control" id="name" placeholder="Naam">
-            </div>
-            <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Naam" name="name">
+          </div>
+          <div class="form-group">
             <label for="email">E-mailadres</label>
-            <input type="email" class="form-control" id="email" placeholder="E-mailadres">
+            <input type="email" class="form-control" id="email" placeholder="E-mailadres" name="email">
           </div>
           <div class="form-group">
             <label for="message">Bericht</label>
-            <textarea class="form-control" rows="5" id="message" placeholder="Bericht"></textarea>
+            <textarea class="form-control" rows="5" id="message" placeholder="Bericht" name="message"></textarea>
           </div>
-          <button type="submit" class="btn btn-default">Verstuur</button>
+          <div class="form-actions">
+            <input type="hidden" name="save" value="contact">
+            <button type="submit" class="btn btn-default" id="form-button">Verstuur</button>
+          </div>
         </form>
       </div>
     </div>
@@ -78,6 +92,5 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/contact.js"></script>
 </body>
 </html>
